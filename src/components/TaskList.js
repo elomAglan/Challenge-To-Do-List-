@@ -1,13 +1,13 @@
-import React, { useState, useEffect } from 'react';
-import { collection, addDoc, deleteDoc, doc, updateDoc, query, where, onSnapshot } from 'firebase/firestore';
-import { db, auth } from '../firebase';
-import { Container, Typography, TextField, Button, List, ListItem, ListItemText, IconButton, Grid } from '@mui/material';
-import DeleteIcon from '@mui/icons-material/Delete';
-import EditIcon from '@mui/icons-material/Edit';
-import SaveIcon from '@mui/icons-material/Save';
 import CancelIcon from '@mui/icons-material/Cancel';
 import CheckBoxIcon from '@mui/icons-material/CheckBox';
 import CheckBoxOutlineBlankIcon from '@mui/icons-material/CheckBoxOutlineBlank';
+import DeleteIcon from '@mui/icons-material/Delete';
+import EditIcon from '@mui/icons-material/Edit';
+import SaveIcon from '@mui/icons-material/Save';
+import { Button, Container, Grid, IconButton, List, ListItem, ListItemText, TextField, Typography } from '@mui/material';
+import { addDoc, collection, deleteDoc, doc, onSnapshot, query, updateDoc, where } from 'firebase/firestore';
+import React, { useEffect, useState } from 'react';
+import { auth, db } from '../firebase';
 
 function TaskList() {
   const [tasks, setTasks] = useState([]);
@@ -88,7 +88,7 @@ function TaskList() {
       </Typography>
 
       <Grid container spacing={2}>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={12}>
           <TextField
             label="New Task"
             value={newTask}
@@ -98,7 +98,7 @@ function TaskList() {
             variant="outlined"
           />
         </Grid>
-        <Grid item xs={12} md={6}>
+        <Grid item xs={12} md={12}>
           <TextField
             label="Description"
             value={newDescription}
